@@ -1,3 +1,13 @@
+ 
+ 
+ // these code for disbaling the past date from now
+ disabledDate={(current) => {
+                          let customDate = moment().format("YYYY-MM-DD");
+                          return current && current < moment(customDate, "YYYY-MM-DD");
+                          }} 
+ 
+ 
+ // these code for disbaling the future datees
  <DatePicker
           placeholder={t("dob")}
           onChange={handleDobChange}
