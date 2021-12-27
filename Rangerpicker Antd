@@ -15,3 +15,4 @@
           let customDate = moment().add(1,'days').format("YYYY-MM-DD");
          return (current) && (current) > moment((customDate), "YYYY-MM-DD");
         }}  
+/>
