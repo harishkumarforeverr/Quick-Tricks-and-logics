@@ -1,4 +1,10 @@
-    .ant-pagination {
+   .ant-table-pagination.ant-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+}
+   
+   .ant-pagination {
           float: unset !important;
           text-align: center;
           .ant-pagination-item-active {
