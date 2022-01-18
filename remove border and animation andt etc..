@@ -27,7 +27,7 @@ input field Animation
    .ant-input,
       .ant-input:focus,
       .ant-input:active,
-      .ant-input:hover {
+      .ant-input:hover,.ant-input-affix-wrapper-focused, .ant-input-affix-wrapper:focus {
         border-color: #d9d9d9 !important;
         box-shadow: none !important;
       }
