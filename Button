@@ -1,0 +1,10 @@
+  .ant-btn {
+          margin: 0 2%;
+          color: white;
+          font-size: 1.1rem;
+          background-color: #f06e38;
+          font-weight: 400;
+          border: 1.8px solid #f06e38;
+          opacity: 1;
+          width: 6.8rem;
+        }
