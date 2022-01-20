@@ -1,0 +1,55 @@
+// here checkBoxes is a user-defined class name
+.checkBoxes {
+      margin-top: 0.6%;
+      // uncchecked One
+      .ant-radio-inner {
+        width: 17px;
+        height: 17px;
+        background-color: #dedede;
+        border: 2px solid #d9d9d9;
+        transition-property: none !important;
+        transform: none !important;
+        animation: none !important;
+      }
+      span.ant-radio + * {
+        font-weight: 600;
+        color: #a8a8a8;
+        font-size: 1.38rem;
+        margin-left: 0.7rem;
+        white-space: nowrap;
+        opacity: 0.8;
+      }
+      // chched
+      .ant-radio-wrapper-checked {
+        span.ant-radio + * {
+          color: #f06e38;
+          font-weight: 600;
+        }
+      }
+      // inner background color
+      // chched
+
+      .ant-radio-checked:after {
+        border: none; // these one is reelted to animation something like that
+      }
+      .ant-radio-checked .ant-radio-inner {
+        border-color: #f06e38;
+        background: white;
+      }
+      .ant-radio-checked .ant-radio-inner {
+        width: 18px;
+        height: 18px;
+      }
+      .ant-radio-inner:after {
+        background-color: #f06e38;
+        width: 19px;
+        height: 20px;
+        margin-top: -10.3px;
+        margin-left: -9.5px;
+      }
+
+      // Gap between the Radio
+      .ant-radio-wrapper {
+        margin-right: 2.5rem;
+      }
+    }
