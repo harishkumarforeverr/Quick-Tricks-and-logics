@@ -1,0 +1,22 @@
+ .ant-select {
+          width: 100%;
+        }
+        .ant-select-selector {
+          border: 1.9px solid #707070bb;
+          background-color: #fffbf1;
+          font-weight: 600;
+          padding-left: 0;
+          width: 11rem;
+          padding-left: 0.4rem;
+          padding-right: 0.4rem;
+        }
+        .ant-select-selection-item {
+          font-size: 1.1rem;
+          font-weight: 600;
+          opacity: 0.7;
+        }
+        .ant-select-arrow {
+          color: black;
+          font-size: 1rem;
+          right: 8px;
+        }
