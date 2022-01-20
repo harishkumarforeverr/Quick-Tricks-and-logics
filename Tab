@@ -1,0 +1,113 @@
+.product-TabsSection {
+    // tab sections starts
+    height: 85%;
+    padding-top: 1%;
+    // tab
+    .ant-tabs > .ant-tabs-nav {
+      padding-left: 3%;
+      padding-right: 3%;
+      margin-bottom: 0;
+      border-bottom: 0.21px solid #f06f383b;
+    }
+    // tab ki font
+    .ant-tabs-tab-btn {
+      color: black;
+      opacity: 0.4;
+      font-size: 1.27rem;
+    }
+    // active tab ki fonts
+    .ant-tabs-tab-active {
+      .ant-tabs-tab-btn {
+        opacity: 0.7;
+      }
+    }
+    // gap between tab
+    .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    // commmented is default behavour of antd tab bar
+
+    // .ant-tabs-ink-bar {
+    //   background-color: #f06e38;
+    //   height: 0.3rem;
+    //   border-radius: 10px;
+    // }
+
+
+
+    // these is user defined tab bar ink bar
+    .ant-tabs-ink-bar {
+      display: none;
+    }
+    .ant-tabs-tab::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 0.31rem;
+      width: 70%;
+      background-color: transparent;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.008s;
+    }
+    .ant-tabs-tab-active.ant-tabs-tab::after {
+      background-color: #f06e38;
+      transition: all 0.005s;
+    }
+    // make Tab Content height 100% we must need to write these and
+    // and giver product-TabsSection height 85% is very imp
+    // where product-TabsSection is Container div (html div )
+    .ant-tabs {
+      height: 100%;
+    }
+    .ant-tabs-content-holder {
+      height: 100%;
+    }
+    .ant-tabs-content {
+      height: 100%;
+    }
+    .ant-tabs-tabpane {
+      height: 100%;
+    }
+    // ab Content height ends here
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // sample JSX
+      <div className="product-TabsSection">
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="General Information" key="1">
+            <GeneralInformation />
+          </TabPane>
+          <TabPane tab="Product Photos" key="2">
+            Product Photos
+          </TabPane>
+          <TabPane tab="Variant Attributes" key="3">
+            Variant Attributes
+          </TabPane>
+          <TabPane tab="SEO" key="4">
+            SEO
+          </TabPane>
+          <TabPane tab="Variant Sizes" key="5">
+            Variant Sizes
+          </TabPane>
+          <TabPane tab="Status & Publishing" key="6">
+            Status & Publishing
+          </TabPane>
+          <TabPane tab="Preview" key="7">
+            Preview
+          </TabPane>
+        </Tabs>
+      </div>
