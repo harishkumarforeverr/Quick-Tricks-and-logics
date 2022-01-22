@@ -20,3 +20,9 @@
           font-size: 1rem;
           right: 8px;
         }
+  .ant-select-selection-placeholder {
+    text-align: left;
+    font-weight: 500;
+    color: var(--black);
+    opacity: 0.6;
+  }
