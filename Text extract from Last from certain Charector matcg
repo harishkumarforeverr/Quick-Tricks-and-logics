@@ -1,1 +1,1 @@
-item?.certificate?.substring(item?.certificate?.lastIndexOf("/") +  1  )
+ certificate?.substring( certificate?.lastIndexOf("/") +  1  )
