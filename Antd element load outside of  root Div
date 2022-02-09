@@ -26,3 +26,7 @@ Antd element load outside of  root Div
                   </Select>
                   <p className="Error">{BlurCheck["mode"] && errors.mode}</p>
                 </div>
+
+
+// for DateRangePicker 
+ getCalendarContainer={(triggerNode) => triggerNode.parentNode}
