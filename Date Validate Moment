@@ -23,3 +23,15 @@
  disabledDate={(d) =>
                   d.isAfter("anthi futher dates ani ardham") || d.isSameOrBefore("anthi current Date unndi")
                 }
+
+
+
+
+
+// to disable the from certain point and disbale the futhure Days
+  disabledDate={(current) =>
+     current <= moment(dob) || 
+     current >= moment() 
+   }
+   
+   here dob means from where u want to disable the Dates and at below of it moment() means to ddisbale all the futhure Days and here cureent meeans cureent Day
