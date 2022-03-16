@@ -1,0 +1,45 @@
+  <Button
+          className="steps-btn"
+          size="large"
+          shape="circle"
+          onClick={() => {
+            setMobileVerficationModel(false);
+          }}
+          icon="arrow-left"
+        />
+        <Button
+          className="steps-btn"
+          onClick={() => {
+            setMobileVerficationModel(false);
+          }}
+          size="large"
+          shape="circle"
+          icon="arrow-right"
+        />
+        
+        
+        
+        //ccss code
+          .MobileVerfication__actionsBtns {
+    position: absolute;
+    bottom: 7%;
+    right: 2%;
+    .steps-btn {
+      background-color: var(--primary);
+      color: var(--half-white) !important;
+      margin-right: 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--primary);
+        color: var(--half-white);
+      }
+      &:active {
+        background-color: var(--primary);
+        color: var(--half-white);
+      }
+      &:focus {
+        background-color: var(--primary);
+        color: var(--half-white);
+      }
+    }
+  }
