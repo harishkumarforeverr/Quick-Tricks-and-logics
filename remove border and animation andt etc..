@@ -7,6 +7,11 @@ antd select
   border-color: #d9d9d9 !important;
   box-shadow: none !important;
 }
+
+or 
+   .ant-select-selection {
+    box-shadow: none !important;
+   }
 ---------------------------------- 
 
 
