@@ -1,15 +1,11 @@
-.DashboardHealthRecord .ant-tooltip-inner {
-  color: var(--half-white);
-  background-color: var(--primary);
+.TopTestsDiagnosticsTooltip .ant-tooltip-inner {
+  color: var(--half-white) !important;
+  background-color: var(--primary) !important;
 }
 
-
-       <Tooltip
-                    overlayClassName="DashboardHealthRecord"
-                    title={item.issue}
-                  >
-                    <span>
-                      {item?.issue?.slice(0, 10)}
-                      {item?.issue?.length >= 11 && "..."}
-                    </span>
-                  </Tooltip>
+         <Tooltip overlayClassName="TopTestsDiagnosticsTooltip" title={street}>
+            <span>
+              {street?.slice(0, 67)}
+              {street?.length >= 67 && "..."}
+            </span>
+          </Tooltip>
