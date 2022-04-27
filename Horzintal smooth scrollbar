@@ -1,0 +1,83 @@
+// css
+ .slick-prev,
+  .slick-next {
+    border-radius: 50%;
+    top: 46%;
+  }
+  .slick-prev {
+    left: -2%;
+    bottom: 2%;
+    z-index: 1000;
+  }
+  .slick-next {
+    right: 3%;
+    z-index: 1000;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 3rem;
+    color: var(--primary);
+  }
+  
+  
+  
+  
+/// js file code
+import Slider from "react-slick";
+    const settings = {
+    dots: false,
+    slidesToShow: 5,
+    slidesToScroll: 3,
+    initialSlide: 2,
+    arrows: true,
+    infinite: false,
+    autoplay: false,
+    autoplaySpeed: 4000,
+    speed: 1000,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          dots: false,
+          slidesToShow: 5,
+          slidesToScroll: 3,
+          initialSlide: 2,
+          arrows: true,
+          infinite: false,
+          autoplay: false,
+          autoplaySpeed: 4000,
+          speed: 1000,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false,
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          initialSlide: 2,
+          arrows: true,
+          infinite: false,
+          autoplay: false,
+          autoplaySpeed: 4000,
+          speed: 1000,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          dots: false,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+          infinite: true,
+          autoplay: false,
+          autoplaySpeed: 4000,
+          speed: 1000,
+        },
+      },
+    ],
+  };
+ <Slider {...settings}>
+ {[1,2,3,4,5].map(()=><h1>oh</h1>)}
+    </Slider>
