@@ -1,3 +1,4 @@
+// @import './themes';
 
 @mixin tabsStyles {
   .ant-tabs-top > .ant-tabs-nav::before {
@@ -19,7 +20,7 @@
     left: 25%;
     color: #f06e38;
     opacity: 0.3;
-    font-size: 1.6rem;
+    font-size: 1.86rem;
     font-weight: 500;
   }
   .ant-tabs-ink-bar {
