@@ -1,0 +1,14 @@
+
+To check/get old values:
+
+git config --global user.email
+git config --global user.name
+Output:
+
+youold@email.com
+youroldgoodname
+
+To set new values
+
+git config --global user.email yournew@email.com
+git config --global user.name yournewgoodname
