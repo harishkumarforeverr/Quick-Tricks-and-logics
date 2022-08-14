@@ -1,1 +1,33 @@
+1. initial git application
+
+2. the setup the envrionemnt variable
+   url : https://www.youtube.com/watch?v=v3RCp26naoI
+   
+3. git --version
+
+4. git config --list
+
+5. git config --global user.name "harish kumar"
+   git config --global user.email "harishking809@gmail.com"
+   
+6.git init
+
+7. git status
+
+8. create a file .gitignore
+
+9. git add .
+
+10. git status
+
+11. git reset
+    these comamnd will unstage the completed stage file
+  
+12 git rest <secific file name>
+    these commmand will unstage only one file
+    
+13. git log
+
+
+
 git checkout -b  branch_name 
