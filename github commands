@@ -60,6 +60,16 @@
     git branch BRANCH_NAME    # create a new branch
     git switch BRANCH_NAME    # then switch to the new branch
    
-20. gitbranch -a
+20. git branch -a (shows all the branches)
 
 21. git checkout -b  branch_name 
+
+22. git checkout master
+
+23. git pull origin master
+
+24. git brnch --merged
+
+25. git merge <branch name>
+
+26. git push origin
