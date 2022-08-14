@@ -42,6 +42,24 @@
     
 13. git log
 
+14. git add .
 
+15. git commit -m "message "
 
-git checkout -b  branch_name 
+16. git clone url 
+
+17. git diff
+
+18 after the creating the branch , if we want publish tat branch , then we shud write these command
+   git push -u origin <branch name>
+   
+19. git checkout -b BRANCH_NAME creates a new branch and checks out the new branch while git branch BRANCH_NAME creates a new branch but leaves you on the same branch.
+
+    In other words git checkout -b BRANCH_NAME does the following for you.
+
+    git branch BRANCH_NAME    # create a new branch
+    git switch BRANCH_NAME    # then switch to the new branch
+   
+20. gitbranch -a
+
+21. git checkout -b  branch_name 
