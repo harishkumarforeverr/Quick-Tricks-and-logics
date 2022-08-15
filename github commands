@@ -73,3 +73,11 @@
 25. git merge <branch name>
 
 26. git push origin
+
+27. git commit -m "messgae"
+   so if we want to remove the above commit message then we must need to
+   write these below command
+
+   git commit --amend -m "new message"
+
+28.    
