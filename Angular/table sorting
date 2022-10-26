@@ -1,0 +1,64 @@
+// sorting
+
+        <th pSortableColumn="contact">
+                Contact Name
+                <p-sortIcon field="contact"></p-sortIcon>
+              </th>
+              
+                   <td>
+                <span>{{ profile.name }} </span>
+              </td>
+              
+              
+              
+// selected rows
+    <p-table [value]="selfAssesmentProfile" [(selection)]="selectedDomains">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
+          <th pSortableColumn="MainDomainURL">
+            Main Domain URL
+            <p-sortIcon field="MainDomainURL"></p-sortIcon>
+          </th>
+          <th pSortableColumn="LastScanned">
+            Last Scanned
+            <p-sortIcon field="LastScanned"></p-sortIcon>
+          </th>
+          <th pSortableColumn="CreatedDate">
+            Created Date
+            <p-sortIcon field="CreatedDate"></p-sortIcon>
+          </th>
+          <th pSortableColumn="Registor">
+            Registor <p-sortIcon field="Registor"></p-sortIcon>
+          </th>
+          <th pSortableColumn="Status">
+            Status <p-sortIcon field="Status"></p-sortIcon>
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th><input pInputText placeholder="Search" /></th>
+          <th><input pInputText placeholder="Search" /></th>
+          <th><input pInputText placeholder="Search" /></th>
+          <th><input pInputText placeholder="Search" /></th>
+          <th><input pInputText placeholder="Search" /></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-profile>
+        <tr>
+          <td>
+            <p-tableCheckbox [value]="profile"></p-tableCheckbox>
+          </td>
+          <td>{{ profile.MainDomainURL }}</td>
+          <td>{{ profile.LastScanned }}</td>
+          <td>{{ profile.CreatedDate }}</td>
+          <td>{{ profile.Registor }}</td>
+          <td>{{ profile.Status }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    
+    
+here we get all the seleceted rows of the table in the variable selectedDomains
