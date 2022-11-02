@@ -1,0 +1,9 @@
+  onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+  
+  
+       <input
+            placeholder=""
+            class="form-control"
+            type="number"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+          />
