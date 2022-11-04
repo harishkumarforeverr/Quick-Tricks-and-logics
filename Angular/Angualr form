@@ -1,0 +1,138 @@
+  html 
+  
+  // these is for form
+  <form [formGroup]="vendorProfileForm" autocomplete="off" class="login-form">
+  
+    // these is for html 
+   <div class="data_info">
+            <label class="labelForVendor" for="clientOrgName"
+              >clientOrgName name</label
+            >
+            <input
+              placeholder=""
+              class="form-control"
+              type="text"
+              [ngClass]="{
+                'form-control': true,
+                'is-invalid':
+                  vendorProfileForm.get('clientOrgName')?.invalid &&
+                  (vendorProfileForm.get('clientOrgName')?.dirty ||
+                    vendorProfileForm.get('clientOrgName')?.touched)
+              }"
+              id="clientOrgName"
+              name="clientOrgName"
+              formControlName="clientOrgName"
+            />
+            <div class="invalid-feedback">
+              {{
+                vendorProfileForm.get("clientOrgName")?.hasError("required")
+                  ? "This field is required."
+                  : "his field is required."
+              }}
+            </div>
+   </div>
+   
+   
+   
+   // these is for mutli select
+   
+     <div class="data_info">
+              <!-- <h5>Primary domain</h5>
+              <input type="text" pInputText placeholder="Primary domain" /> -->
+              <label class="labelForVendor" for="Industry">Industry </label>
+
+              <p-multiSelect
+                [options]="cities"
+                class="form-control"
+                [(ngModel)]="selectedCities"
+                display="chip"
+                placeholder="Select from below"
+                [ngClass]="{
+                  'form-control': true,
+                  'is-invalid':
+                    vendorProfileForm.get('Industry')?.invalid &&
+                    (vendorProfileForm.get('Industry')?.dirty ||
+                      vendorProfileForm.get('Industry')?.touched)
+                }"
+                id="Industry"
+                name="Industry"
+                formControlName="Industry"
+              >
+              </p-multiSelect>
+              <div class="invalid-feedback">
+                {{
+                  vendorProfileForm.get("Industry")?.hasError("required")
+                    ? "This field is required."
+                    : "his field is required."
+                }}
+              </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            //// these for typescript file
+            
+            
+            
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnChanges,
+  ViewEncapsulation,
+  SimpleChanges,
+} from "@angular/core";
+import { VendorAssesmentservice } from "../../../services/vendorAssesment.service";
+
+import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+interface Role {
+  name: string;
+  code: string;
+}
+@Component({
+  selector: "app-add-new-vendor",
+  templateUrl: "./add-new-vendor.component.html",
+  styleUrls: ["./add-new-vendor.component.scss"],
+  encapsulation: ViewEncapsulation.None,
+})
+export class AddNewVendorComponent implements OnInit, OnChanges {
+  @Output() vendorView = new EventEmitter<string>();
+  @Output() setView = new EventEmitter<string>();
+  @Output() setbrisperiaData = new EventEmitter<any>();
+  editingMode = true;
+  cities = [1, 2, 3, 4, 5];
+  Category = [6, 7, 83, 9, 5];
+  selectedCities;
+  selectedCategory;
+  vendorProfileForm;
+  constructor(private fb: FormBuilder) {
+    this.vendorProfileForm = this.fb.group({
+      clientOrgName: [, [Validators.required]],
+      domainName: [, [Validators.required]],
+      Industry: [, [Validators.required]],
+      Category: [, [Validators.required]],
+      Address: [, [Validators.required]],
+      email: [, [Validators.required]],
+    });
+  }
+  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnInit(): void {}
+  backToVendorPage(val) {
+    this.vendorView.emit("vendorInfo");
+  }
+  handleview(val: string) {}
+  onSubmit(data) {
+    const obj = {
+      ...this.vendorProfileForm.value,
+      ...data,
+    };
+    console.log("onSubmitonSubmit", obj);
+  }
+  filterCountry(event) {}
+}
