@@ -1,0 +1,62 @@
+    <p-table
+                  [value]="info.versions"
+                  [(selection)]="info.selectedDomains"
+                  #dt
+                  [globalFilterFields]="fields"
+                  >>
+                  <ng-template pTemplate="header">
+                    <tr class="versions_table">
+                      <th>
+                        <p-tableHeaderCheckbox
+                          (click)="handleTheClick()"
+                        ></p-tableHeaderCheckbox>
+                      </th>
+                      <th pSortableColumn="Versionid">
+                        Versionid <p-sortIcon field="Versionid"></p-sortIcon>
+                      </th>
+                      <th pSortableColumn="VersionName">
+                        VersionName
+                        <p-sortIcon field="VersionName"></p-sortIcon>
+                      </th>
+                      <th pSortableColumn="CreatedBy">
+                        CreatedBy <p-sortIcon field="CreatedBy"></p-sortIcon>
+                      </th>
+                      <th pSortableColumn="CreatedOn">
+                        CreatedOn <p-sortIcon field="CreatedOn"></p-sortIcon>
+                      </th>
+
+                      <th>Actions</th>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-version>
+                    <tr class="version_data">
+                      <td>
+                        <p-tableCheckbox
+                          (click)="handleTheClick()"
+                          [value]="version"
+                        ></p-tableCheckbox>
+                      </td>
+                      <td>{{ version.versionId }}</td>
+                      <td>{{ version.versionName }}</td>
+                      <td>{{ version.createdBy }}</td>
+                      <td>{{ version.createdOn | date: "dd-MM-YYYY" }}</td>
+
+                      <td>
+                        <div class="action_icons">
+                          <img
+                            src="../../../../assets/view.svg"
+                            tooltipPosition="top"
+                            pTooltip="View"
+                            (click)="Previewquestion(version, info)"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="emptymessage">
+                    <tr class="version_data">
+                      <td colspan="6" style="text-align: center">No Ques</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
