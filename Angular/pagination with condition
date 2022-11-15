@@ -1,0 +1,15 @@
+      <p-table
+              [value]="vendorList"
+              responsiveLayout="scroll"
+              [rows]="5"
+              [paginator]="getPagniationBoolean(vendorList)"
+            >
+            
+            
+            
+            
+            
+            
+   getPagniationBoolean(arg: string | any[]) {
+    return arg?.length > 5 ? true : false;
+  }
