@@ -1,0 +1,64 @@
+/* eslint-disable prettier/prettier */
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  data: {},
+};
+const branchesSlice = createSlice({
+  name: 'branches',
+  initialState,
+  reducers: {
+    getDataSuccess: (state, { payload }) => {
+      return 1;
+    },
+  },
+});
+
+export const { getDataSuccess } = branchesSlice.actions;
+export const { reducer } = branchesSlice;
+
+
+
+
+
+
+
+import React, {
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+  useEffect,
+} from 'react';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useInjectReducer,
+  useInjectSaga,
+} from '@elliemae/pui-app-sdk';
+// thsis required select pill using for Branches dropdown
+// Todo Move to the Common Interface
+import {
+  reducer as BranchesReducer,
+  getDataSuccess,
+} from '../../../data/branches/index';
+
+
+
+
+
+  useInjectReducer({ key: 'branches', reducer: BranchesReducer });
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-return
+  const branchesData = useAppSelector((state) => state.branches);
+  const dispatch = useAppDispatch();
+  console.log('branchesData', branchesData);
+  const handleTheSubmit = () => {
+     dispatch(getDataSuccess());
+  }
+  // useEffect(() => {
+  //   dispatch(getDataSuccess());
+  // }, [dispatch]);
+  
+  
+  
+     <button onClick={handleTheSubmit}>upload me</button>
