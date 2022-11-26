@@ -12,7 +12,7 @@
    <th>
             <p-columnFilter
               type="text"
-              field="questionnaireVersion.questionnaire.name"
+              field="vendorName"
             ></p-columnFilter>
           </th>
           
@@ -20,7 +20,11 @@
           
           or another method
                 <th>
-            <p-columnFilter [showMenu]="false" type="text" field="">
+            <p-columnFilter
+            [showMenu]="false" 
+            type="text" 
+            field="vendorName"
+            >
               <ng-template
                 pTemplate="filter"
                 let-value
@@ -34,7 +38,8 @@
                   class="p-inputtext"
                   placeholder="search"
                 /> </ng-template
-            ></p-columnFilter>
+            >
+            </p-columnFilter>
           </th>
   
   
