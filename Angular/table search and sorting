@@ -19,6 +19,8 @@
           
           
           or another method
+          
+          
                 <th>
             <p-columnFilter
             [showMenu]="false" 
