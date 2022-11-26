@@ -1,0 +1,259 @@
+// for seaching ==>
+1.  [globalFilterFields]="[
+        'questionnaireVersion.questionnaire.name',
+        'questionnaireVersion.versionName',
+        'vendor.clientOrgName',
+        'vendorName',
+        'createdOn',
+        'expiryDate'
+      ]"
+  
+  2. add he 2nd row as show in beloow for example
+   <th>
+            <p-columnFilter
+              type="text"
+              field="questionnaireVersion.questionnaire.name"
+            ></p-columnFilter>
+          </th>
+  
+  
+  
+  
+  
+  // for sorting
+     <th pSortableColumn="questionnaireVersion.versionName">
+            Version
+            <p-sortIcon field="questionnaireVersion.versionName"></p-sortIcon>
+          </th>
+          
+          
+    <td>{{ questionnairesinfo.questionnaireVersion.versionName }}</td>
+    
+    
+  in abobe these questionnaireVersion.versionName  ,ust be same undala
+    
+    
+    
+    
+    
+    
+    
+    /// code
+  <p-table
+      [value]="questionnairesinfo"
+      responsiveLayout="scroll"
+      [rows]="6"
+      paginatorPosition="bottom"
+      [globalFilterFields]="[
+        'questionnaireVersion.questionnaire.name',
+        'questionnaireVersion.versionName',
+        'vendor.clientOrgName',
+        'vendorName',
+        'createdOn',
+        'expiryDate'
+      ]"
+      [paginator]="getPagniationBoolean(questionnairesinfo)"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ "" }}</th>
+          <th pSortableColumn="questionnaireVersion.questionnaire.name">
+            {{
+              "VrmModule.Questionaries.ManageQ.questionnairesinfoTable.Teplate"
+                | translate
+            }}
+            <p-sortIcon
+              field="questionnaireVersion.questionnaire.name"
+            ></p-sortIcon>
+          </th>
+          <th pSortableColumn="questionnaireVersion.versionName">
+            Version
+            <p-sortIcon field="questionnaireVersion.versionName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="vendor.clientOrgName">
+            Vendor
+            <p-sortIcon field="vendor.clientOrgName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="vendorName">
+            {{
+              "VrmModule.Questionaries.ManageQ.questionnairesinfoTable.sentTo"
+                | translate
+            }}
+            <p-sortIcon field="vendorName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="createdOn">
+            {{
+              "VrmModule.Questionaries.ManageQ.questionnairesinfoTable.sentOn"
+                | translate
+            }}
+            <p-sortIcon field="createdOn"></p-sortIcon>
+          </th>
+          <th pSortableColumn="expiryDate">
+            {{
+              "VrmModule.Questionaries.ManageQ.questionnairesinfoTable.DueDate"
+                | translate
+            }}
+            <p-sortIcon field="expiryDate"></p-sortIcon>
+          </th>
+
+          <th>
+            {{
+              "VrmModule.Questionaries.ManageQ.questionnairesinfoTable.Actions"
+                | translate
+            }}
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>
+            <p-columnFilter
+              type="text"
+              field="questionnaireVersion.questionnaire.name"
+            ></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter
+              type="text"
+              field="questionnaireVersion.versionName"
+            ></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter
+              type="text"
+              field="vendor.clientOrgName"
+            ></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="vendorName"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="createdOn"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field="expiryDate"></p-columnFilter>
+          </th>
+          <th>
+            <p-columnFilter type="text" field=""></p-columnFilter>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-questionnairesinfo let-i="rowIndex">
+        <tr key="questionnairesinfo._id">
+          <td>{{ [i + 1] }}</td>
+          <td>
+            <span
+              class="sendQTitle"
+              (click)="
+                previewQuestionnaries1(
+                  'AnsQuestionnaires',
+                  questionnairesinfo.assessmentId,
+                  questionnairesinfo.customer.customerId,
+                  questionnairesinfo.vendor.clientOrgId
+                )
+              "
+              [pTooltip]="
+                questionnairesinfo.questionnaireVersion.questionnaire.name
+              "
+              tooltipPosition="top"
+              >{{
+                questionnairesinfo.questionnaireVersion.questionnaire.name
+              }}</span
+            >
+          </td>
+          <td>{{ questionnairesinfo.questionnaireVersion.versionName }}</td>
+
+          <td>{{ questionnairesinfo?.vendor?.clientOrgName }}</td>
+          <td>
+            <!-- {{ questionnairesinfo.vendorName }} -->
+            <div
+              class="avata_info"
+              *ngIf="questionnairesinfo?.assignTo.length > 0"
+            >
+              <p-avatar
+                *ngFor="let obj of questionnairesinfo?.assignTo"
+                [label]="getTheName(obj.user)"
+                shape="circle"
+                class="avatar_letter"
+                size="small"
+              ></p-avatar>
+              <!-- <p-avatar
+              *ngIf="questionnairesinfo?.assignTo.length > 0"
+              label="+"
+              (click)="openViewContact(questionnairesinfo?.assignTo)"
+              shape="circle"
+              size="small"
+            ></p-avatar> -->
+              <span class="avatar_letter">
+                <i
+                  class="pi pi-info-circle"
+                  (click)="openViewContact(questionnairesinfo?.assignTo)"
+                >
+                </i>
+              </span>
+            </div>
+          </td>
+          <td>{{ questionnairesinfo.createdOn | date: "dd-MM-yyyy" }}</td>
+          <td>{{ questionnairesinfo.expiryDate | date: "dd-MM-yyyy" }}</td>
+          <td>
+            <div class="actions">
+              <p-button
+                icon="pi pi-check-circle"
+                (click)="
+                  previewQuestionnaries1(
+                    'AnsQuestionnaires',
+                    questionnairesinfo.assessmentId,
+                    questionnairesinfo.customer.customerId,
+                    questionnairesinfo.vendor.clientOrgId
+                  )
+                "
+                label="Review"
+              >
+              </p-button>
+            </div>
+          </td>
+          <!-- <td>
+          <div class="actions">
+            <i (click)="op.toggle($event)" class="pi pi-ellipsis-v"></i>
+            <div class="add_tag_overlay">
+              <p-overlayPanel
+                #op
+                [showCloseIcon]="true"
+                [style]="{ width: '23rem' }"
+              >
+                <ng-template pTemplate>
+                  <div class="container">
+                    <h4
+                      (click)="
+                        previewQuestionnaries(
+                          'ViewQuestionnaires',
+                          questionnairesinfo._id
+                        )
+                      "
+                    >
+                      <i class="pi pi-images"></i>
+                      View Questionnaires
+                    </h4>
+                    <h4
+                      (click)="
+                        previewQuestionnaries(
+                          'Overview',
+                          questionnairesinfo._id
+                        )
+                      "
+                    >
+                      <i class="pi pi-inbox"></i>
+                      Overview
+                    </h4>
+                    <h4 (click)="OpenArchiveModal()">
+                      <i class="pi pi-ban"></i>
+                      Archive
+                    </h4>
+                  </div>
+                </ng-template>
+              </p-overlayPanel>
+            </div>
+          </div>
+        </td> -->
+        </tr>
+      </ng-template>
+    </p-table>
