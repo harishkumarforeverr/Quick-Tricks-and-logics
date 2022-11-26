@@ -286,3 +286,75 @@
         </tr>
       </ng-template>
     </p-table>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /// andother sample table example
+    
+        <p-table
+      #dt
+      [columns]="cols"
+      [value]="riskacceptance"
+      [scrollable]="true"
+      (onFilter)="filterData($event)"
+      responsiveLayout="scroll"
+      [rows]="10"
+      [paginator]="getPagniationBoolean(riskacceptance)"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            {{ col.header }}
+            <p-sortIcon field="{{ col.field }}"></p-sortIcon>
+          </th>
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns">
+            <p-columnFilter
+              [showMenu]="false"
+              type="text"
+              field="{{ col.field }}"
+            >
+              <ng-template
+                pTemplate="filter"
+                let-value
+                let-filter="filterCallback"
+              >
+                <input
+                  type="text"
+                  pInputText
+                  [ngModel]="value"
+                  (ngModelChange)="filter($event, dt)"
+                  class="p-inputtext"
+                  placeholder="search"
+                /> </ng-template
+            ></p-columnFilter>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+          <td
+            *ngFor="let col of columns"
+            [ngStyle]="{ color: changeColor(rowData[col.field]) }"
+          >
+            {{ rowData[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
