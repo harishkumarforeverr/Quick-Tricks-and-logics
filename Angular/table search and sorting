@@ -37,8 +37,9 @@
                   (ngModelChange)="filter($event, dt)"
                   class="p-inputtext"
                   placeholder="search"
-                /> </ng-template
-            >
+                /> 
+                </ng-template>
+            
             </p-columnFilter>
           </th>
   
