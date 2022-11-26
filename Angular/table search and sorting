@@ -15,6 +15,27 @@
               field="questionnaireVersion.questionnaire.name"
             ></p-columnFilter>
           </th>
+          
+          
+          
+          or another method
+                <th>
+            <p-columnFilter [showMenu]="false" type="text" field="">
+              <ng-template
+                pTemplate="filter"
+                let-value
+                let-filter="filterCallback"
+              >
+                <input
+                  type="text"
+                  pInputText
+                  [ngModel]="value"
+                  (ngModelChange)="filter($event, dt)"
+                  class="p-inputtext"
+                  placeholder="search"
+                /> </ng-template
+            ></p-columnFilter>
+          </th>
   
   
   
