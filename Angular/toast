@@ -1,0 +1,48 @@
+
+import { MessageService } from "primeng/api";
+
+@Component({
+  selector: "app-create-template",
+  templateUrl: "./create-template.component.html",
+  styleUrls: ["./create-template.component.scss"],
+  encapsulation: ViewEncapsulation.None,
+  providers: [MessageService],
+})
+
+constructor(
+    private fb: FormBuilder,
+    private messageService: MessageService,
+    private primengConfig: PrimeNGConfig,
+    private _Questionnaires: QuestionnairesService,
+    private log: LoggerService,
+    private localStore: LocalService
+  ) 
+  
+  
+    if (singleSelectOption.length == 1) {
+        this.messageService.add({
+          key: "notification",
+          severity: "error",
+          summary: "Atleast 2 option is mandatory",
+        });
+        return;
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+html file
+     
+  <p-toast key="notification" position="top-right"></p-toast>
