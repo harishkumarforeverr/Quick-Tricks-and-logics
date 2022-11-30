@@ -46,9 +46,43 @@
           </th>
   
   
-  
-  
-  
+  and for date sorting
+     
+                <th>
+            <p-columnFilter
+            [showMenu]="false" 
+            type="text" 
+            field="expiryDate"
+            >
+              <ng-template
+                pTemplate="filter"
+                let-value
+                let-filter="filterCallback"
+              >
+              <p-calendar  
+                 dateFormat="mm/dd/yy"
+                 [placeholder]="value? value:'Search By ' +  [col.header]"
+                 [ngModel]="value? value:'Search By ' +  [col.header]"
+                  (ngModelChange)="filter(getTheDate($event), dt)"
+                    appendTo="body"
+                    ></p-calendar>
+                </ng-template>
+            
+            </p-columnFilter>
+          </th>
+
+
+in ts file
+    import * as moment from 'moment/moment.js';
+
+
+      getTheDate(arg) {
+    //2022-11-27 testing
+
+    console.log("argarg", moment(arg).format("YYYY-MM-DD"));
+    return moment(arg).format("YYYY-MM-DD").toString();
+      }
+  ################################################################################################################################################################
   // for sorting
      <th pSortableColumn="questionnaireVersion.versionName">
             Version
