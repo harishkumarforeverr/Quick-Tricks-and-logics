@@ -1,0 +1,104 @@
+ ## in table ############### 
+    #dt
+    [globalFilterFields]="getFilterName()"
+    
+    
+############### in ts file ############### 
+
+  cols = [
+    {
+      field: "firstName",
+      header: "First Name",
+    },
+    {
+      field: "lastName",
+      header: "Last Name",
+    },
+    {
+      field: "roles[0]?.roleName ",
+      header: "Role",
+    },
+    {
+      field: "userId",
+      header: "E-mail",
+    },
+    {
+      field: "createdOn",
+      header: "Created On",
+      type: "date",
+    },
+  ];
+  getFilterName() {
+    return this.cols.map(({ field }) => field);
+  }
+    
+    
+    
+######################## in html file
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 5rem">{{ "" }}</th>
+
+        <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+          {{ col.header }}
+          <p-sortIcon [field]="col.field"></p-sortIcon>
+        </th>
+      </tr>
+      <tr>
+        <th style="width: 5rem">{{ "" }}</th>
+        <th *ngFor="let col of cols">
+          <p-columnFilter
+            [showMenu]="false"
+            type="text"
+            field="{{ col.field }}"
+          >
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback"
+            >
+              <input
+                type="text"
+                *ngIf="!col.type"
+                pInputText
+                [ngModel]="value"
+                (ngModelChange)="filter($event, dt)"
+                class="p-inputtext"
+                placeholder="Search By {{ col.header }}"
+              />
+
+              <p-calendar
+                *ngIf="col.type"
+                dateFormat="mm/dd/yy"
+                [placeholder]="value ? value : 'Search By ' + [col.header]"
+                [ngModel]="value ? value : 'Search By ' + [col.header]"
+                (ngModelChange)="filter(getTheDate($event), dt)"
+                appendTo="body"
+              ></p-calendar>
+            </ng-template>
+          </p-columnFilter>
+        </th>
+      </tr>
+    </ng-template>
+    
+    
+    
+    
+    
+    
+    
+    
+  ################################ in ts file
+  
+import * as moment from "moment/moment.js";
+
+
+    getTheDate(arg) {
+    //2022-11-27 testing
+
+    console.log("argarg", moment(arg).format("YYYY-MM-DD"));
+    return moment(arg).format("YYYY-MM-DD").toString();
+  }
+    
+    
+    
