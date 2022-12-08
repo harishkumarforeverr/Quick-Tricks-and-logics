@@ -1,0 +1,43 @@
+  <i
+    (click)="resetSort(dt)"
+    class="pi pi-replay initialColor"
+    [ngClass]="{
+      TableStatusFiltered: TableIsFilter || TableSortFilter
+    }"
+  ></i>
+  
+  
+//#####################################################################################################################################
+  TableSortFilter = false;
+  TableIsFilter = false;
+  handleTheSort(event, order, data) {
+    if (order == "sort") {
+      if (event.field == "1") {
+        this.TableSortFilter = false;
+        return;
+      }
+      this.TableSortFilter = true;
+    }
+    if (order == "filter") {
+      if (event.filteredValue.length === data.length) {
+        this.TableIsFilter = false;
+      } else {
+        this.TableIsFilter = true;
+      }
+    }
+  }
+  resetSort(dt) {
+    this.usersDetails = [...this.usersDetailsInitail];
+    dt.reset();
+    this.TableIsFilter = false;
+    this.TableSortFilter = false;
+  }
+  
+  
+//#####################################################################################################################################
+  
+   <p-table
+    sortField="1"
+    (onSort)="handleTheSort($event, 'sort', usersDetails)"
+    (onFilter)="handleTheSort($event, 'filter', usersDetails)"
+    [value]="usersDetails"
