@@ -41,3 +41,14 @@
     (onSort)="handleTheSort($event, 'sort', usersDetails)"
     (onFilter)="handleTheSort($event, 'filter', usersDetails)"
     [value]="usersDetails"
+    
+    
+  
+//#####################################################################################################################################
+    
+   .TableStatusFiltered {
+  color: #53c22b !important;
+}
+.initialColor {
+  color: white;
+}
