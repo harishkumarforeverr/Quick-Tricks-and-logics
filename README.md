@@ -8,4 +8,7 @@
 7. html
 8. css
 9. moment
-10. primeng
+10. primeng angular
+11. react-aws-s3
+12. react-router-dom
+13. @react-pdf/renderer
