@@ -5,3 +5,7 @@
 4. angualar
 5. sentry 
 6. google analaystis
+7. html
+8. css
+9. moment
+10. primeng
