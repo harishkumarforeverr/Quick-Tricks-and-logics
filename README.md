@@ -12,3 +12,7 @@
 11. react-aws-s3
 12. react-router-dom
 13. @react-pdf/renderer
+14. gitpod
+15. github
+16. vercel
+
