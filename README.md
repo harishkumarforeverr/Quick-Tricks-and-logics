@@ -15,4 +15,7 @@
 14. gitpod
 15. github
 16. vercel
-
+17. bcryptjs
+18. jest
+19. enzyme
+20. react testing libraray
