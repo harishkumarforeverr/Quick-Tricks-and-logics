@@ -87,3 +87,14 @@ Axiosinstance.interceptors.response.use(
 );
 
 export default Axiosinstance;
+
+
+
+
+
+
+
+
+
+// for logout 
+ localStorage.clear();
