@@ -1,0 +1,279 @@
+const express = require("express");
+const router = express.Router();
+const { body, validationResult } = require("express-validator");
+// const sCareListing = require("../../../Models/v1.0/seniorCareProvider");
+// const sCareuser = require("../../../../Auth/Models/v1.0/SCPUser");
+// const { validator, CreateNewSeniorCareSchema } = require("./requestValidation");
+// const { authenticate } = require("../../../../common/middleware/authenticate");
+const ObjectId = require("mongodb").ObjectID;
+const { customAlphabet } = require("nanoid/async");
+const { client1 } = require("../../../SeniorCare/config");
+const nanoid = customAlphabet(
+  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  6
+);
+const getProviderId = async () => {
+  return await nanoid();
+};
+router.post(
+  "/", //authenticate ,
+  [
+    // body("hostUserId")
+    //   .trim()
+    //   .notEmpty()
+    //   .isString()
+    //   .isLength({ min: 20 })
+    //   .withMessage("please give valid host id"),
+    body("serviceID")
+      .trim()
+      .notEmpty()
+      .isString()
+      .isLength({ min: 20 })
+      .withMessage("please give valid service id"),
+    body("propertyType")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid property Type"),
+    body("title")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid title"),
+    body("summary")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid summary"),
+    body("space")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid space"),
+    body("description")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid description"),
+    body("neighborhoodOverview")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid neighborhood Overview"),
+    body("notes")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid notes"),
+    body("transit")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid transit"),
+    body("hostName")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid host Name"),
+    body("hostID_Doc")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid host host Doc"),
+    body("country")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid country"),
+    body("state")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid state"),
+    body("city")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid city"),
+    body("street")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid street"),
+    body("area")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid area"),
+    body("landMark")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid landMark"),
+    body("cancelationPolocy")
+      .trim()
+      .notEmpty()
+      .isString()
+      .withMessage("please give valid cancelation Polocy"),
+
+    body("hostPhoneNumber")
+      .notEmpty()
+      .isLength({ min: 9 })
+      .withMessage("please give valid host Phone Number"),
+    body("zip")
+      .notEmpty()
+      .isLength({ min: 4 })
+      .withMessage("please give valid host zip"),
+    // body("maximumCapcity")
+    //   .notEmpty()
+    //   .isLength({ min: 1 })
+    //   .withMessage("please give valid maximum Capcity"),
+    body("securityDeposite")
+      .notEmpty()
+      .isLength({ min: 1 })
+      .withMessage("please give valid security Deposite"),
+    body("cleaningFee")
+      .notEmpty()
+      .isLength({ min: 1 })
+      .withMessage("please give valid cleaning Fee"),
+  ],
+  async (req, res) => {
+    try {
+      let reqBody = req.body;
+
+      // if (req.get("Content-Type") != "application/json") {
+      //   return res
+      //     .status(401)
+      //     .json({ status: 401, message: "Invalid header format" });
+      // }
+      // const errors = validationResult(req);
+      // if (!errors.isEmpty()) {
+      //   return res.status(404).json({
+      //     status: 400,
+      //     message: "Invalid request formate",
+      //     errors: errors.array(),
+      //   });
+      // }
+    let providerId = await Promise.all(req.body.map(() => getProviderId()));
+      const newData = req.body.map( (reqBody,index) => {
+      
+        const fields = [
+          "location",
+          "imageUrls",
+          "isLocationExact",
+          "houseRules",
+          "securityDeposite",
+          "cleaningFee",
+          "isSantizied",
+          "isProfileCreated",
+          "isSuspended",
+          "isBlocked",
+          "isDenied",
+          "listing_url",
+          "propertyType",
+          "title",
+          "summary",
+          "space",
+          "description",
+          "neighborhoodOverview",
+          "notes",
+          "transit",
+          "hostName",
+          "hostPhoneNumber",
+          "hostID_Doc",
+          "country",
+          "state",
+          "city",
+          "street",
+          "serviceID",
+          "area",
+          "landMark",
+          "zip",
+          "coverImageUrl",
+          "maximumCapcity",
+          "amenities",
+          "cancelationPolocy",
+          "providerId",
+          "reviews",
+          "category",
+          "maximumGuests",
+          "companyWebsiteUrl",
+          "companyWebsiteVideoUrl",
+          "isPartner",
+          "hostUserId",
+          "hostEmail",
+          // "isPartner",
+        ];
+
+        var ServiceProviders = {};
+        fields.forEach((val) => {
+          if (reqBody.hasOwnProperty(val)) {
+            ServiceProviders[val] = reqBody[val];
+          }
+        });
+        ServiceProviders.hostUserId = ObjectId(reqBody.hostUserId);
+        ServiceProviders.serviceID = ObjectId(reqBody.serviceID);
+        //
+        ServiceProviders.isPartner = false;
+        const profileId = providerId[index];
+        let title = reqBody.title;
+        let subTitle = title.substring(0, 10);
+        let removeSpaceTitle = subTitle.replace(/\s+/g, "");
+        ServiceProviders.providerId = `${removeSpaceTitle}-${profileId}`;
+        ServiceProviders.isProfileCreated = true;
+        return ServiceProviders
+      });
+
+      try {
+        db2 = client1.db("PREPROD_UB_PROVIDER");
+        //db2 = client1.db("UAT1_UB_HOST_PROVIDER");
+        const sCarebookings = db2.collection("sCareListing");
+        const data = await sCarebookings.insertMany(newData);
+        // var result = await ServiceProviders.save();
+        //  var result = ServiceProviders.toObject();
+        // let updateUserDetails = {
+        //   isProfileCreated: true,
+        //   isDCCreated: true,
+        // };
+        // try {
+        //   SCPUser = db2.collection("SCPUser");
+        //   const updatedUserdata = await SCPUser.updateOne(
+        //     { _id: ObjectId(reqBody.hostUserId) },
+        //     updateUserDetails,
+        //     { new: true }
+        //   );
+        //   return res.json({
+        //     status: 200,
+        //     message: "Success 1",
+        //     data: data,
+        //     updateUserDetails,
+        //   });
+        // } catch (error) {
+        return res.json({
+          status: 201,
+          message: "senior care created successfully",
+          // data: ServiceProviders,
+          data,
+        });
+        // }
+
+        // return res.json({
+        //   status: 200,
+        //   message: "Success",
+        //   data: data,
+        // });
+      } catch (error) {
+        return res.json({ status: 400, message: "Failure", data: error });
+      }
+    } catch (error) {
+      res.json({
+        status: 404,
+        message: "Failure",
+        data: {},
+        error: `${error}`,
+      });
+    }
+  }
+);
+
+module.exports = router;
