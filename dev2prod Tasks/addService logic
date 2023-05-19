@@ -212,8 +212,7 @@ router.post(
           }
         });
         ServiceProviders.hostUserId = ObjectId(reqBody.hostUserId);
-        ServiceProviders.serviceID = ObjectId(reqBody.serviceID);
-        //
+        ServiceProviders.serviceID = ObjectId(reqBody.serviceID); 
         ServiceProviders.isPartner = false;
         const profileId = providerId[index];
         let title = reqBody.title;
