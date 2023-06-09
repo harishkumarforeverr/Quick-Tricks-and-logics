@@ -1,2 +1,0 @@
-
-                getPopupContainer={(triggerNode) => triggerNode.parentNode}
