@@ -1,0 +1,19 @@
+<DatePicker
+                      disabledDate={(current) =>
+                        current &&
+                        (current.isAfter(moment()) ||
+                          current.isSame(moment(), "day"))
+                      }
+                      // disabled={moment().subtract(1, "day") || moment()}
+                      // minDate={} // Disable current date
+                      // maxDate={moment()} // Disable future dates
+                      format={"MM/DD/YYYY"}
+                      onChange={(e) => {
+                        const target = {
+                          name: "dob",
+                          value: moment(e).format("MM/DD/YYYY"),
+                        };
+                        inputChangeHandler({ target });
+                      }}
+                      name="dob"
+                    />
