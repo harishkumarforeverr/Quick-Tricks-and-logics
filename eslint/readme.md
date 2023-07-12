@@ -1,7 +1,7 @@
 To add ESLint to your project, follow these steps:
  
- ## open the command prompt in the Adminststor mode
- ![alt text]("./images/cmd.png")
+ ## open the command prompt in the Adminststor mode 
+ <img src="../eslint/images/cmd.png" />
 
 1. Install ESLint as a development dependency using npm or yarn. Open your project's terminal and run one of the following commands:
 
