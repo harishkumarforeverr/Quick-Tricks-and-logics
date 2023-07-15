@@ -1,0 +1,82 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "plugin:@next/next/recommended"
+    ],
+    "overrides": [
+      {
+        "files": ["**.test.js"],
+        "rules": {
+          "require-jsdoc": "off",
+          "global-require": "off"
+        }
+      }
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": ["react", "import", "react-hooks"],
+    "root": true,
+    "rules": {
+      "no-console": "error",
+      "no-restricted-imports": ["error", "lodash", "lodash-es"],
+      "no-set-state": "off",
+      "no-useless-escape": "off",
+      "no-plusplus": "off",
+      "linebreak-style": "off",
+      "indent": ["error", 4],
+      "object-curly-spacing": "off",
+      "require-jsdoc": [
+        "error",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true,
+            "ArrowFunctionExpression": true
+          }
+        }
+      ],
+      "valid-jsdoc": [
+        "error",
+        {
+          "requireReturn": false
+        }
+      ],
+      "import/extensions": [
+        "error",
+        {
+          "json": true
+        }
+      ],
+      "react/jsx-indent": ["error", 4],
+      "react/jsx-indent-props": ["error", 4],
+      "react/jsx-filename-extension": "off",
+      "react/jsx-tag-spacing": "off",
+      "react/no-array-index-key": "error",
+      "react/forbid-prop-types": "off",
+      "react/no-danger": "off",
+      "import/prefer-default-export": "error",
+      "import/no-unresolved": ["error", {}],
+      "no-underscore-dangle": "off",
+      "max-len": ["error", 120],
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
+      "import/no-extraneous-dependencies": "off",
+      "react/jsx-props-no-spreading": "off",
+      "no-restricted-exports": "off"
+    }
+  }
+  
