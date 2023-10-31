@@ -1,0 +1,2 @@
+netsh wlan show profiles
+netsh wlan show profiles name="Airtel_pand_4570" key=clear
