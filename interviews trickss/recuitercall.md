@@ -7,18 +7,11 @@
    - Answer:
 
      - Frontend:
-
-       - "I have 3.5 years of experience in React.js."
-       - "I have 3.5 years of experience in Es6."
-       - "I have 3.5 years of experience in redux."
-       - "I have 4.1 years of experience in HTML."
-       - "I have 4.1 years of experience in CSS."
-       - "I have 4.1 years of experience in JavaScript."
+       - "I have 3.5 years of experience in redux and es6 and React.js."
+       - "I have 4.1 years of experience in HTML. and CSS and Javascript"
 
      - Backend:
-       - "I have 1 years of experience in Node.js."
-       - "I have 1 years of experience in Express."
-       - "I have 1 years of experience in MongoDB."
+       - "I have 1 years of experience in Node.js. and express.js and mongodb" 
 
 3. **What is your current company name?**
 
