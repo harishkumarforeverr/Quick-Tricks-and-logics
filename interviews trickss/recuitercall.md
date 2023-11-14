@@ -22,7 +22,9 @@
 
 3. **What is your current company name?**
 
-   - Answer: "I am currently employed at Techies Infotech Pvt Ltd."
+   - Answer: "I am currently employed at Techies Infotech Pvt Ltd. and Working as Software Developer in Tech Mahindra in Bangalore from 
+January 2019 to August 2023.
+"
 
 4. **When was your last working day at your current company?**
 
