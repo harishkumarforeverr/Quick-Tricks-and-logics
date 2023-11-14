@@ -1,4 +1,4 @@
-1. **What is your total experience in the field?**
+`1. **What is your total experience in the field?**
 
    - Answer: "I have 4.1 years of total professional experience."
 
@@ -16,9 +16,11 @@
 3. **What is your current company name?**
 
    - Answer: "I am currently employed at Techies Infotech Pvt Ltd. and Working as Software Developer in Tech Mahindra in Bangalore from 
-January 2019 to August 2023.
+Sep 2019 to Sep 2023.
 "
-Address  Tech Mahindra in Bangalore: 4a, 4b, RMZ Ecoworld Rd, Adarsh Palm Retreat, Bellandur, Bengaluru, Karnataka 560103
+
+   - Address:  "  Tech Mahindra in Bangalore: 4a, 4b, RMZ Ecoworld Rd, Adarsh Palm Retreat, Bellandur, Bengaluru, Karnataka 560103"
+
 
 4. **When was your last working day at your current company?**
 
