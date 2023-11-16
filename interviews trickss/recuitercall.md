@@ -10,6 +10,7 @@
 
        - "I have 3.5 years of experience in redux and es6 and React.js."
        - "I have 4.1 years of experience in HTML. and CSS and Javascript"
+       - "I have 1 years of experience in typescript"
 
      - Backend:
        - "I have 1 years of experience in Node.js. and express.js and mongodb"
